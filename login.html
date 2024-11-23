@@ -1,0 +1,133 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Page</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                background-color: #f0f8ff;
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            h1{
+                color: rgb(73, 58, 58);
+            }
+            .login-container {
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 350px;
+                padding: 30px;
+            }
+            .login-container h1 {
+                text-align: center;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            label {
+                font-size: 16px;
+                margin-bottom: 5px;
+                display: block;
+            }
+            input {
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            #forget_password{
+                text-align: right;
+                color: rgb(3, 3, 241);
+
+
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+            .form-footer {
+                text-align: center;
+                margin-top: 15px;
+            }
+            .form-footer a {
+                color: #4CAF50;
+                text-decoration: none;
+            }
+            .form-footer a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="login-container">
+            <h1> RID Login</h1>
+            <form action="get" method="post">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" required>
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" required>
+                <p id="forget_password">
+                    <a href="#" onclick="forgotPassword()">Forgot password?</a>
+                  </p>
+                <button onclick="login()" type="submit" value="Login">Login</button>
+            </form>
+            <div class="form-footer">
+                <p>Don't have an account? <a href="sign.html" >Sign Up</a></p>
+            </div>
+        </div>
+        <script>
+             function validateLoginForm() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+    
+        if (username === "" || password === "") {
+          alert("Both fields are required.");
+          return false; 
+        }
+
+    
+        return true;
+      }
+
+    
+      function forgotPassword() {
+        let email = prompt("Please enter your email address to reset your password:");
+
+        if (email === null || email === "") {
+          alert("Email address is required.");
+        } else {
+          
+          alert("A password reset link has been sent to your email: " + email);
+        }
+      }
+
+        </script>
+
+    </body>
+    </html>
