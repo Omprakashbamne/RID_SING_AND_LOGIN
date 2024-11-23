@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #f0f8ff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      h1 {
+        color: rgb(65, 55, 55);
+      }
+      .signup-container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        padding: 20px;
+      }
+      .signup-container h1 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      label {
+        font-size: 16px;
+        margin-bottom: 5px;
+        display: block;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .form-footer {
+        text-align: center;
+        margin-top: 15px;
+      }
+      .form-footer a {
+        color: #4caf50;
+        text-decoration: none;
+      }
+      .form-footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="signup-container">
+      <h1>RID Sign Up</h1>
+      <form action="get" method="post">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required />
+
+        <label for="confirm-password">Confirm Password</label>
+        <input
+          id="confirm-password"
+          name="confirm-password"
+          type="password"
+          required
+        />
+
+        <button onclick="sing()" type="submit" value="Sign Up">Sign UP</button>
+      </form>
+      <div class="form-footer">
+        <p>Already have an account? <a href="login.html">Log In</a></p>
+      </div>
+    </div>
+    <script>
+       function validateForm() {
+        let username = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirm-password").value;
+
+      
+        if (username === "" || email === "" || password === "" || confirmPassword === "") {
+          alert("All fields are required.");
+          return false; 
+        }
+
+        
+        if (password !== confirmPassword) {
+          alert("Passwords do not match.");
+          return false; 
+        }
+
+        
+        let passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        if (!passwordPattern.test(password)) {
+          alert("Password must be at least 8 characters long and contain at least one letter and one number.");
+          return false; 
+        }
+
+      
+        return true;
+      }
+     
+     </script>
+  </body>
+</html>
