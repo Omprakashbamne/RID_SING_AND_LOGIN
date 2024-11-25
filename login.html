@@ -90,7 +90,7 @@
         <p id="forget_password">
           <a href="#" onclick="forgotPassword()">Forgot password?</a>
         </p>
-        <button type="button" onclick="log()">Login</button>
+       <button type="button" onclick="log()"> <Login href="picture_gallery.html">Login</a></button>
       </form>
       <div class="form-footer">
         <p>Don't have an account? <a href="sign.html">Sign Up</a></p>
@@ -107,7 +107,9 @@
 
         if (user_id === c_u_id && user_pwd === c_u_p) {
           alert("Login Successful!");
+          window.location.href = "picture_gallery.html";
           console.log("Login Successfull !");
+          
           console.log("Username: " + c_u_id);
           console.log("Password: " + c_u_p);
         } else {
